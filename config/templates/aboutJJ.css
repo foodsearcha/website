@@ -1,0 +1,19 @@
+.title{
+    margin-left: 33%;
+}
+.pagination{
+    margin-left: 36%;
+}
+.imgpart{
+    margin-left:11%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+}
+.imgpart img{
+    display: inline-block;
+    width: 60%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+}
