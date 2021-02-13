@@ -27,35 +27,28 @@
             var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
         }
 
-        function locationTest() {
-            navigator.geolocation.getCurrentPosition(handleLocation, handleError); 
+        function initlocation(){
+            navigator.geolocation.getCurrentPosition(
+                function(position){
+                    my_latitude = position.coords.latitude
+                    my_longitude = position.coords.longitude
+                    var button_map = {
+                        center:new google.maps.LatLng(my_latitude, my_longitude),
+                        zoom:15,
+                    };
+                    var new_map = new google.maps.Map(document.getElementById("googleMap"), button_map)
+                    const marker = new google.maps.Marker({
+                        position: { lat: my_latitude, lng: my_longitude },
+                        map: button_map,
+                    });
+                }
+            )
+
         }
-
-        function handleLocation(position)  {
-
-            var outDiv = document.getElementById("result"); 
-
-            var posStr = "latitude : " + position.coords.latitude + "<br/>";
-            posStr += "longitude : " + position.coords.longitude; 
-            outDiv.innerHTML = posStr; 
-            var latlng = new google.maps.LatLng(position.coords.latitude, 
-                    position.coords.longitude);     
-
-            var mapOption = {
-                zoom: 13,
-                center: latlng,
-                mapTypeControl: false,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            var map = new google.maps.Map(document.getElementById("googleMap"),mapOption);
-            new google.maps.Marker({position : latlng, map : map, title : "현재위치"});
-
-        }    
-
     </script>
     
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCuHGkhbvXMb2jhDNRmJTPss5uSg5JDis&callback=myMap"></script>
-    <input class = "button mt-5"type="button" value="내 주변 맛집 찾기!" style = "height:60px; font-size:20px"  onclick = 'handleLocation()'>
+    <input class = "button mt-3"type="button" value="내 주변 맛집 찾기!" style = "height:60px; font-size:20px" onclick = 'initlocation()'>
 </body>
 
 </html>
