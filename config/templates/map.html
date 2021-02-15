@@ -29,7 +29,7 @@
                     };                                      
                    
                     var new_map = new google.maps.Map(document.getElementById("googleMap"), button_map)
-                    
+
                     var markers = new google.maps.Marker({
                         position : my_position,
                         map : new_map
@@ -40,7 +40,14 @@
         }
     </script>
     <style>
-
+        dl { width: 400px }
+        dt { float: left; width: 300px; overflow: hidden; white-space: nowrap }
+        dd { float: left; width: 100px; overflow: hidden }
+        dt:after { content: " .................................................................................." }
+        h3 {
+            color : green;
+            margin-left : 100px;
+        }
 
     </style>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCuHGkhbvXMb2jhDNRmJTPss5uSg5JDis&callback=myMap"></script>
@@ -63,20 +70,20 @@
         </div>  
 
         <div class = "result-view">
-            <div id="googleMap" style="width:70%;height:400px; margin-left : 5%; margin-top : 10px; float:left;">
+            <div id="googleMap" style="width:70%;height:400px; margin-left : 5%; margin-top : 10px; margin-right:100px; float:left;">
                 <script>
                     myMap()
                 </script>      
             </div>         
-            <div id="list" style = "float : left"></div>
-
+            <div id="list"></div>
+                <h3>주변 음식점</h3>
             </div>
             
         </div>
 
         <div style="clear:both"></div>
 
-    <input class = "button mt-3"type="button" value="내 주변 맛집 찾기!" style = "height:60px; font-size:20px; margin-left:5%;" onclick = 'initlocation()'>
+    <input class = "button mt-3"type="button" value="내 주변 음식점 찾기!" style = "height:60px; font-size:20px; margin-left:5%;" onclick = 'initlocation()'>
 
 
 
