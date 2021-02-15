@@ -27,11 +27,13 @@
                         center:my_position,
                         zoom:15,
                     };                                      
+                   
+                    var new_map = new google.maps.Map(document.getElementById("googleMap"), button_map)
+                    
                     var markers = new google.maps.Marker({
                         position : my_position,
-                        map : button_map
+                        map : new_map
                     });
-                    var new_map = new google.maps.Map(document.getElementById("googleMap"), button_map)
                 }
             )
 
