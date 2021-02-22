@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="foodstyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <title>성미당</title>
+</head>
+<body>
+    <div class ="title"> <a href="mainindex.html"><img src="./img/전주어떄 title.jpg"></a></div>
+    <div class="foodhead">
+      <div><img src="./img/한식icon.png"></div>
+      <div>한식-성미당</div>
+    </div>
+    <div class="slide">
+        <img id="back" src="./img/left-arrow.png"  width="50">
+        <ul>
+          <li><img src="./img/성미당1.jpg" width="600px"></li>
+          <li><img src="./img/성미당2.jpg"width="600px"></li>
+          <li><img src="./img/성미당3.jpg"width="600px"></li>
+        </ul>
+        <img id="next" src="./img/right-arrow.png" alt="" width="50">
+    </div>
+
+    <div class="food_introduce">
+        <div><img src="./img/백종원의3대천왕.png" width="80"></div>
+        <div># 백종원 3대천왕 출현 </div>
+        <div> <i class="bi bi-instagram" width="80"></i></div>
+        <div>#Hashtag Count : 4520</div>
+        <div><i class="bi bi-map" width="80"></i> </div>
+        <div>전북 전주시 완산구 중앙동3가 31-2</div>
+        <div>분류 : #객사</div>
+    </div>
+      <script type="text/javascript">
+        $(document).ready(function(){
+          var imgs;
+          var img_count;
+          var img_position = 1;
+    
+          imgs = $(".slide ul");
+          img_count = imgs.children().length;
+
+          $('#back').click(function () {
+            back();
+          });
+          $('#next').click(function () {
+            next();
+          });
+    
+          function back() {
+            if(1<img_position){
+              imgs.animate({
+                left:'+=650px'
+              });
+              img_position--;
+            }
+          }
+          function next() {
+            if(img_count>img_position){
+              imgs.animate({
+                left:'-=650px'
+              });
+              img_position++;
+            }
+          }
+        });
+      </script>
+</body>
+</html>
