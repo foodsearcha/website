@@ -9,9 +9,5 @@ def hello_world():
 
 
 if __name__ == '__main__':
-<<<<<<< HEAD
-    app.run()
-=======
-    app.run(host="0.0.0.0", port="28080")
->>>>>>> 5e1762368e1f0bbd33472d47d6cbc0e58a79732c
+    app.run(host="192.168.0.150", port="28080")
 
